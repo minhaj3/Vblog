@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace vblog;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -23,4 +23,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function blogs()
+    {
+        return $this->hasMany('vblog\Blog');
+    }
+
+    public function posts()
+    {
+        return $this->hasMany('vblog\Post');
+    }
 }
