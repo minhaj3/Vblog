@@ -60,21 +60,6 @@
                     <a href="{{action('BlogPageController@show',['blogs'=>$blog->slug,'posts'=>$page->id])}}">{{$page->title}}</a>
                 </li>
                 @endforeach
-                <!-- Authentication Links -->
-                @if(Auth::guest())
-                    <li><a href="{{ url('/login') }}">Login</a></li>
-                    <li><a href="{{ url('/register') }}">Register</a></li>
-                @else
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
-
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                        </ul>
-                    </li>
-                @endif
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -123,14 +108,11 @@
         </div>
     </footer>
 
-    <!-- JavaScripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!-- jQuery -->
-    <!-- <script src="js/jquery.min.js"></script> -->
+    <script src="js/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <!-- <script src="js/bootstrap.min.js"></script> -->
+    <script src="js/bootstrap.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="js/clean-blog.min.js"></script>
