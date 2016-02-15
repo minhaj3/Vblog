@@ -10,6 +10,6 @@ class Category extends Model
 
     public function posts()
     {
-    	$this->belongsToMany('vblog\Post')->withTimestamps();
+    	return $this->belongsToMany('vblog\Post')->withTimestamps();
     }
 }

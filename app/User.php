@@ -24,13 +24,18 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function blogs()
+    public function blog()
     {
-        return $this->hasMany('vblog\Blog');
+        return $this->hasOne('vblog\Blog');
     }
 
     public function posts()
     {
         return $this->hasMany('vblog\Post');
+    }
+
+    public function pages()
+    {
+        return $this->hasManyThrough('vBlog\Page','vblog\Blog');
     }
 }

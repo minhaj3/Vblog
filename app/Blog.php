@@ -10,21 +10,37 @@ class Blog extends Model
 
     public function posts()
     {
-    	$this->hasMany('vblog\Post');
+    	return $this->hasMany('vblog\Post');
     }
 
     public function pages()
     {
-    	$this->hasMany('vblog\Page');
+    	return $this->hasMany('vblog\Page');
     }
 
     public function theme()
     {
-    	$this->hasOne('vblog\Theme');
+    	return $this->hasOne('vblog\Theme');
     }
 
     public function user()
     {
-    	$this->belongsTo('vblog\User');
+    	return $this->belongsTo('vblog\User');
+    }
+
+    public function setTitleAttribute($value){
+    	$this->attributes['title'] = $value;
+
+    	if(! $this->exists){
+    		$this->attributes['slug'] = str_slug($value);
+    	}
+    }
+
+    public function setDescriptionAttribute($value){
+    	$this->attributes['description'] = $value;
+
+    	if(! $this->exists){
+    		$this->attributes['short'] = str_limit($value,50);
+    	}
     }
 }

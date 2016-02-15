@@ -13,7 +13,7 @@ class Page extends Model
     	return $this->morphMany('vblog\Comment','commentable');
     }
 
-    public function Blog()
+    public function blog()
     {
     	return $this->belongsTo('vblog\Blog');
     }

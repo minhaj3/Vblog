@@ -10,6 +10,6 @@ class Theme extends Model
 
     public function blog()
     {
-    	$this->belongsTo('vblog\Blog');
+    	return $this->belongsTo('vblog\Blog');
     }
 }

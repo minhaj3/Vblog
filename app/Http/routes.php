@@ -28,6 +28,15 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/', function () {
 	    return view('welcome');
 	});
+
+	Route::resource('blogs','BlogController');
+	
+	Route::resource('blogs.posts','BlogPostController',['except'=>['index']]);
+	
+	Route::resource('blogs.pages','BlogPageController',['except'=>['index']]);
+
+	Route::get('blogs/{id}/about','BlogController@about');
+
 });
 
 Route::group(['middleware' => 'web'], function () {

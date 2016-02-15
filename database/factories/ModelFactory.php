@@ -59,7 +59,7 @@ $factory->define(vblog\Comment::class, function(Faker\Generator $faker){
 
 $factory->define(vblog\Page::class, function(Faker\Generator $faker){
 	return [
-		'title' => $faker->sentence(3),
+		'title' => $faker->word,
 		'content' => $faker->realText(500),
 	];
 });

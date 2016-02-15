@@ -20,6 +20,11 @@ class Post extends Model
 
     public function user()
     {
+        return $this->belongsTo('vblog\User');
+    }
+
+    public function blog()
+    {
     	return $this->belongsTo('vblog\Blog');
     }
 }
