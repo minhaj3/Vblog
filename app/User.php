@@ -36,6 +36,6 @@ class User extends Authenticatable
 
     public function pages()
     {
-        return $this->hasManyThrough('vBlog\Page','vblog\Blog');
+        return $this->hasManyThrough('vblog\Page','vblog\Blog');
     }
 }

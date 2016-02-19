@@ -26,8 +26,10 @@ $factory->define(vblog\User::class, function (Faker\Generator $faker) {
 $factory->define(vblog\Post::class, function(Faker\Generator $faker){
 	return [
 		'title' => $faker->sentence(5),
+		'excerpt' => $faker->sentence(9),
 		'description' => $faker->realText(500),
 		'published_at' => $faker->dateTime(),
+		'likes' => $faker->randomDigit,
 	];
 });
 
@@ -47,7 +49,9 @@ $factory->define(vblog\Theme::class, function(Faker\Generator $faker){
 $factory->define(vblog\Blog::class, function(Faker\Generator $faker){
 	return [
 		'title' => $faker->sentence(3),
+		'excerpt' => $faker->sentence(9),
 		'description' => $faker->realText(500),
+		'likes' => $faker->randomDigit,
 	];
 });
 

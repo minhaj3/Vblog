@@ -73,6 +73,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/users',Auth::user()->id) }}"><i class="fa fa-btn fa-user"></i>Profile</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
@@ -81,6 +82,18 @@
             </div>
         </div>
     </nav>
+
+    @if(Session::has('message'))
+    <div id="r">
+        <div class="container">
+            <div class="row centered">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h4>{{Session::get('message')}}</h4>
+                </div>
+            </div><!-- row -->
+        </div><!-- container -->
+    </div><! -- r wrap -->
+    @endif
 
     @yield('content')
 

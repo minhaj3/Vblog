@@ -13,10 +13,10 @@ class DatabaseSeeder extends Seeder
     {
     	DB::statement('SET FOREIGN_KEY_CHECKS=0;');
     	$this->call(BlogTableSeeder::class);
+    	$this->call(PostTableSeeder::class);
+        $this->call(PageTableSeeder::class);
         $this->call(UserTableSeeder::class);
         $this->call(ThemeTableSeeder::class);
-        $this->call(PostTableSeeder::class);
-        $this->call(PageTableSeeder::class);
         $this->call(CategoryTableSeeder::class);
         $this->call(CommentTableSeeder::class);
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
@@ -28,6 +28,11 @@ class UserTableSeeder extends Seeder
 	public function run()
 	{
 		vblog\User::truncate();
+		// factory(vblog\User::class,20)->create()->each(function($u){
+		// 	$u->posts()->saveMany(factory(vblog\Post::class,2)->make());
+		// 	$u->pages()->saveMany(factory(vblog\Page::class,2)->make());
+		// 	$u->blog()->save(factory(vblog\Blog::class)->make());
+		// });
 		factory(vblog\User::class,20)->create();
 	}
 }

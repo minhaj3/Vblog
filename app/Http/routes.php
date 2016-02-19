@@ -37,6 +37,8 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('blogs/{id}/about','BlogController@about');
 
+	Route::resource('users','UserController');
+
 });
 
 Route::group(['middleware' => 'web'], function () {

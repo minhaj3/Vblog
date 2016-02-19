@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
 {
-    protected $fillable = ['title','description'];
+    protected $fillable = ['title','description','excerpt'];
 
     public function posts()
     {
@@ -36,11 +36,11 @@ class Blog extends Model
     	}
     }
 
-    public function setDescriptionAttribute($value){
-    	$this->attributes['description'] = $value;
+    // public function setDescriptionAttribute($value){
+    // 	$this->attributes['description'] = $value;
 
-    	if(! $this->exists){
-    		$this->attributes['short'] = str_limit($value,50);
-    	}
-    }
+    // 	if(! $this->exists){
+    // 		$this->attributes['short'] = str_limit($value,50);
+    // 	}
+    // }
 }
